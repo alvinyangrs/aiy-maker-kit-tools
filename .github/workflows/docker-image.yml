@@ -28,10 +28,10 @@ jobs:
 #        images: yangrensheng/aiy-maker-kit-tools:$(date +%s)        
     
     - name: Build the Docker image
-      run: docker build . --file scripts/Dockerfile --tag ${{ secrets.YANG_DOCKERHUB_NAME }}/aiy-maker-kit-tools:$(date +%s)
+      run: docker build . --file scripts/Dockerfile --tag ${{ secrets.YANG_DOCKERHUB_NAME }}/aiy-maker-kit-tools:$(date  +'%Y-%m-%d')
 
     - name: Push the Docker image
-      run: docker push ${{ secrets.YANG_DOCKERHUB_NAME }}/aiy-maker-kit-tools:$(date +%s)
+      run: docker push ${{ secrets.YANG_DOCKERHUB_NAME }}/aiy-maker-kit-tools:$(date  +'%Y-%m-%d')
 
 
 #    - name: Build and push Docker image
