@@ -21,17 +21,17 @@ jobs:
         username: ${{ secrets.YANG_DOCKERHUB_NAME }}
         password: ${{ secrets.YANG_DOCKERHUB_SECRET }}
 
-    - name: Extract metadata (tags, labels) for Docker
-      id: meta
-      uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
-      with:
-        images: yangrensheng/aiy-maker-kit-tools:$(date +%s)        
+#    - name: Extract metadata (tags, labels) for Docker
+#      id: meta
+#      uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
+#      with:
+#        images: yangrensheng/aiy-maker-kit-tools:$(date +%s)        
     
     - name: Build the Docker image
-      run: docker build . --file scripts/Dockerfile --tag ${{ steps.meta.outputs.tags }}
+      run: docker build . --file scripts/Dockerfile --tag yangrensheng/aiy-maker-kit-tools:$(date)
 
     - name: Push the Docker image
-      run: docker push ${{ steps.meta.outputs.tags }}
+      run: docker push yangrensheng/aiy-maker-kit-tools:$(date)
 
 
 #    - name: Build and push Docker image
