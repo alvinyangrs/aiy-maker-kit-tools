@@ -30,7 +30,7 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file scripts/Dockerfile --tag ${{ steps.meta.outputs.tags }}
 
-    - name: Build the Docker image
+    - name: Push the Docker image
       run: docker push ${{ steps.meta.outputs.tags }}
 
 
